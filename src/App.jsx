@@ -31,12 +31,9 @@ function App() {
   ];
 
   const handleClick = (event) => {
-    if (
-      event.target.textContent === "Suivant" &&
-      pokemonIndex !== pokemonList.length - 1
-    ) {
+    if (event.target.textContent === "Suivant") {
       setPokemonIndex(pokemonIndex + 1);
-    } else if (event.target.textContent === "Précédent" && pokemonIndex !== 0) {
+    } else if (event.target.textContent === "Précédent") {
       setPokemonIndex(pokemonIndex - 1);
     }
   };
@@ -46,8 +43,8 @@ function App() {
   return (
     <div>
       <PokemonCard pokemon={actualPokemon} />
-      
-      <ButtonContainer handleClick={handleClick}/>
+
+      <ButtonContainer handleClick={handleClick} pokemonIndex={pokemonIndex} pokemonList={pokemonList} />
     </div>
   );
 }
