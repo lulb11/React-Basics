@@ -30,12 +30,8 @@ function App() {
     },
   ];
 
-  const handleClick = (event) => {
-    if (event.target.textContent === "Suivant") {
-      setPokemonIndex(pokemonIndex + 1);
-    } else if (event.target.textContent === "Précédent") {
-      setPokemonIndex(pokemonIndex - 1);
-    }
+  const handleClick = (index) => {
+    setPokemonIndex(index);
   };
 
   let actualPokemon = pokemonList[pokemonIndex];
@@ -44,7 +40,7 @@ function App() {
     <div>
       <PokemonCard pokemon={actualPokemon} />
 
-      <ButtonContainer handleClick={handleClick} pokemonIndex={pokemonIndex} pokemonList={pokemonList} />
+      <ButtonContainer handleClick={handleClick} pokemonList={pokemonList} />
     </div>
   );
 }

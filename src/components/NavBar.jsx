@@ -1,12 +1,11 @@
-function ButtonContainer({ handleClick, pokemonIndex, pokemonList }) {
+function ButtonContainer({ handleClick, pokemonList }) {
   return (
     <div>
-      {pokemonIndex > 0 ? (
-        <button onClick={handleClick}>Précédent</button>
-      ) : null}
-      {pokemonIndex < pokemonList.length - 1 ? (
-        <button onClick={handleClick}>Suivant</button>
-      ) : null}
+      {pokemonList.map((pokemons, index) => (
+        <button key={pokemons.name} onClick={() => handleClick(index)}>
+          {pokemons.name}
+        </button>
+      ))}
     </div>
   );
 }
